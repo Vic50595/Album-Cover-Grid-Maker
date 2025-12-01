@@ -11,7 +11,7 @@
 
     header {
       text-align: center;
-      margin-bottom: 2rem;
+      margin-bottom: 5rem;
     }
 
     h1 {
@@ -30,9 +30,9 @@
     .card {
       background: rgba(255, 255, 255, 0.1);
       backdrop-filter: blur(10px);
-      border-radius: 1rem;
       padding: 1.5rem;
-      margin-bottom: 1.5rem;
+      border: 2px dashed var(--yellow);
+  
     }
 
     .carousel-container {
@@ -44,27 +44,65 @@
       width:100%;
     }
 
-    .carousel-track {
-      display: flex;
-      gap: 1rem;
-      overflow-x: auto;
-      scroll-behavior: smooth;
-      padding: 1rem 0;
-      scrollbar-width: none;
-      -ms-overflow-style: none;
-    }
+  .carousel-track {
+  display: flex;
+  gap: 1rem;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding: 1rem 0;
 
-    .carousel-track::-webkit-scrollbar {
-      display: none;
-    }
+  /* Hide scrollbar */
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE 10+ */
+}
 
-    .carousel-slide {
-      flex-shrink: 0;
-      cursor: pointer;
-      transition: transform 0.2s, opacity 0.2s;
-      opacity: 0.5;
-      text-align: center;
-    }
+.carousel-track::-webkit-scrollbar {
+  display: none; /* Chrome, Safari */
+  width: 0;
+  height: 0;
+  background: transparent;
+  -webkit-appearance: none;
+}
+
+.carousel-track.dragging {
+  cursor: grabbing;
+  user-select: none; /* prevents text selection */
+  -webkit-user-select: none;
+  -ms-user-select: none;
+}
+
+.carousel-track {
+  cursor: grab;
+  user-select: none; /* optional: prevents selection by default */
+  -webkit-user-select: none;
+  -ms-user-select: none;
+}
+
+
+   .carousel-slide {
+  flex-shrink: 0;
+  cursor: pointer;
+  transition: transform 0.2s, opacity 0.2s;
+  opacity: 0.5;
+  
+  /* Keep slide square */
+  width: 200px;
+  height: 200px;
+
+  /* Visual improvements */
+  border: 2px dashed var(--darkred);
+  padding: 8px;
+
+  /* Center preview + text */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  /* Ensure nothing spills out */
+  overflow: hidden;
+}
+
 
     .carousel-slide:hover {
       transform: scale(1.05);
@@ -82,29 +120,25 @@
       font-size: 1.1rem;
     }
 
-    .grid-preview {
-      display: grid;
-      gap: 2px;
-      background: rgba(255, 255, 255, 0.2);
-      padding: 8px;
-      border-radius: 8px;
-      width: 120px;
-      height: 120px;
-    }
+.grid-preview {
+  display: grid;
+  gap: 2px;
+  padding: 6px;
+  border-radius: 8px;
+  width: 120px; /* fixed width */
+  
+  /* Preview becomes taller/shorter automatically to keep cells square */
+  grid-template-columns: repeat(var(--cols), 1fr);
+}
 
-    .grid-2x2 { grid-template-columns: repeat(2, 1fr); }
-    .grid-3x3 { grid-template-columns: repeat(3, 1fr); }
-    .grid-4x4 { grid-template-columns: repeat(4, 1fr); }
-    .grid-5x5 { grid-template-columns: repeat(5, 1fr); }
-    .grid-6x6 { grid-template-columns: repeat(6, 1fr); }
-    .grid-7x7 { grid-template-columns: repeat(7, 1fr); }
-    .grid-8x8 { grid-template-columns: repeat(8, 1fr); }
-    .grid-9x9 { grid-template-columns: repeat(9, 1fr); }
+/* SQUARE CELLS */
+.preview-cell {
+  background: var(--darkred);
+  border-radius: 2px;
+  aspect-ratio: 1 / 1;  /* <-- Forces perfect squares */
+}
 
-    .preview-cell {
-      background: var(--darkred);
-      border-radius: 2px;
-    }
+
 
     .carousel-btn {
       background: rgba(255, 255, 255, 0.2);
@@ -150,28 +184,26 @@
       font-weight: 600;
       cursor: pointer;
       transition: all 0.2s;
+      font-size: 18px;
+    font-weight: bold;
     }
 
     .btn-search {
-      background: #2196F3;
-      color: white;
+      background: var(--yellow);
+      color: var(--darkred);
     }
 
-    .btn-search:hover {
-      background: #1976D2;
-    }
+   
 
     .btn-download {
-      background: #4CAF50;
-      color: white;
+      background: var(--yellow);
+      color: var(--darkred);
       display: flex;
       align-items: center;
       gap: 0.5rem;
     }
 
-    .btn-download:hover {
-      background: #45a049;
-    }
+  
 
     #searchResults {
       display: grid;
@@ -180,6 +212,8 @@
       max-height: 400px;
       overflow-y: auto;
       margin-top: 1rem;
+      scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE 10+ */
     }
 
     .album-result {
@@ -252,7 +286,7 @@
       position: absolute;
       top: 0.5rem;
       right: 0.5rem;
-      background: #f44336;
+      background: #80221c;
       color: white;
       border: none;
       width: 24px;
@@ -271,7 +305,7 @@
     }
 
     .remove-btn:hover {
-      background: #d32f2f;
+      background: #a82a2a;
     }
 
     .hidden {

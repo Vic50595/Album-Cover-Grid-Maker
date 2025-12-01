@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Album Cover Grid Maker</title>
+    <link rel="stylesheet" href="index.css">
+
+</head>
+
+<body>
+    <nav>
+        <ul>
+            <li><a href="#section1">Home :)</a></li>
+            <li><a href="#section2">Grid Maker</a></li>
+            <li><a href="aboutme.html">About Me</a></li>
+        </ul>
+    </nav>
+         <div class="trend">
+            <ul class="banner-text">
+        
+            <a href="">Day 250</a>
+            <a href="">Album of the Day</a>
+            <a href="">Day 250</a>
+            <a href="">Album of the Day</a>
+            <a href="">Day 250</a>
+            <a href="">Album of the Day</a>
+
+        
+        </ul>
+    </div>
+
+
+    <section id="section1">
+   
+        <div class="container">
+            <header>
+                <h1>
+                    Album Cover
+                </h1>
+                <h1>
+                    Grid Maker
+                </h1>
+                <p class="subtitle">Create custom album cover grids</p>
+            </header>
+        </div>
+
+
+    </section>
+    <section id="section2">
+         <div class="container">
+            <header>
+                <h1>
+                    How it works !
+                </h1>
+ 
+                <p class="subtitle">First, Select on which platform you want to post your grid.</p>
+                <p class="subtitle">Then, type in the search bar the artist name, album, ...</p>
+                <p class="subtitle">Click the image to add it, if you’re not happy with it, Click on the red cross to delete it.</p>
+                <p class="subtitle">Once you are finished with it, click Download !</p>
+            </header>
+        <div class="container">
+
+           
+                <h3>Choose Your Grid Size</h3>
+                <div class="carousel-container">
+                    
+                    <div class="carousel-track" id="carouselTrack">
+                        <div class="carousel-slide" data-cols="5" data-rows="3" onclick="selectGridSize(5,3,this)">
+                            <p>Twitter Post</p>
+                           
+                            <p>5 x 3</p>
+                            
+                        </div>
+                        <div class="carousel-slide" data-cols="6" data-rows="2" onclick="selectGridSize(6,2,this)">
+                            <p>Twitter Banner</p>
+                            
+                            <p>6 x 2</p>
+                        </div>
+                        <div class="carousel-slide" data-cols="4" data-rows="4" onclick="selectGridSize(4,4,this)">
+                            <p>Instagram Post</p>
+                            
+                            <p>4 x 4</p>
+                        </div>
+                        <div class="carousel-slide" data-cols="5" data-rows="3" onclick="selectGridSize(5,3,this)">
+                            <p>Facebook Post</p>
+                            
+                            <p>5 x 3</p>
+                        </div>
+                        <div class="carousel-slide" data-cols="5" data-rows="2" onclick="selectGridSize(5,2,this)">
+                            <p>Facebook Cover</p>
+                           
+                            <p>5 x 2</p>
+                        </div>
+                        <div class="carousel-slide" data-cols="5" data-rows="5" onclick="selectGridSize(5,5,this)">
+                            <p>Square L</p>
+                            
+                            <p>5 x 5</p>
+                        </div>
+                        <div class="carousel-slide" data-cols="7" data-rows="7" onclick="selectGridSize(7,7,this)">
+                            <p>Square XL</p>
+                           
+                            <p>7 x 7</p>
+                        </div>
+                        <div class="carousel-slide" data-cols="9" data-rows="9" onclick="selectGridSize(9,9,this)">
+                            <p>Square XXL</p>
+                            
+                            <p>9x9</p>
+                        </div>
+                    </div>
+                    
+                
+            </div>
+
+    </section>
+
+    <section id="section3">
+        <div class="card">
+            <div class="search-container">
+                <input type="text" id="searchInput" placeholder="Search for albums...">
+                <button class="btn-search" onclick="searchAlbums()">Search</button>
+            </div>
+            <div id="searchResults"></div>
+        </div>
+
+        <div class="card">
+            <div class="grid-header">
+                <h2 id="gridStatus">Your Grid (0/9)</h2>
+                <button class="btn-download hidden" id="downloadBtn" onclick="downloadGrid()">
+                    Download 
+                </button>
+            </div>
+            <div id="albumGrid"></div>
+        </div>
+        </div>
+    </section>
+    <section id="section4">Share with your friends</section>
+
+
+
+
+<script src="script.js"></script>
+
+
+</body>
+
+</html>

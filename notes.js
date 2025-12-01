@@ -53,7 +53,7 @@
 
       try {
         const response = await fetch(
-          `https://itunes.apple.com/search?term=${encodeURIComponent(term)}&entity=album&limit=20`
+          `https://itunes.apple.com/search?term=${encodeURIComponent(term)}&entity=album&limit=10`
         );
         const data = await response.json();
         displaySearchResults(data.results || []);
