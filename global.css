@@ -32,6 +32,7 @@ nav {
     z-index: 1000;
     text-decoration: underline;
     color: var(--darkred);
+     
 
 }
 
@@ -64,42 +65,133 @@ nav a:hover {
     left: 0;
     width: 100%;
     background-color: var(--yellow);
-    padding: 15px 0;
     z-index: 1000;
-    border-top: var(--darkred);
-    overflow: hidden; /* Hide overflowing text */
-    color: var(--darkred);
+border-bottom: 2px solid var(--darkred); /* Added border */
+border-top: 2px solid var(--darkred); /* Added border */
 
 }
 
-.trend li {
-   display: inline;
-  margin-right: 40px; /* space between items */
-    margin: 0;
-    padding: 0;
-}
 
-.trend a {
+
+
+.banner {
+     background:var(--yellow);
     color: var(--darkred);
+    padding: 12px 20px;
+    cursor: pointer;
     font-size: 18px;
+    font-weight: bold;
+    user-select: none;
+    transition: background 0.2s, transform 0.2s;
+    text-align: center;
+    
+}
+
+.banner:hover {
+    background: var(--darkred);
+    color: var(--yellow);
+}
+
+.content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease;
+}
+
+select {
+    padding: 8px;
+    margin-bottom: 20px;
+    margin-left: 20px;
+    border-radius: 6px;
+    border: none;
+    font-size: 20px;
+    color: var(--darkred);
+    cursor: pointer;
+}
+
+.carousel-wrapper {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+.carousel {
+    display: flex;
+    gap: 20px;
+    padding: 10px 0;
+    animation: scroll 25s linear infinite;
+}
+
+/* Pause animation on hover */
+.carousel-wrapper:hover .carousel {
+    animation-play-state: paused;
+}
+
+@keyframes scroll {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-50%);
+    }
+}
+
+.album {
+    position: relative;
+    min-width: 150px;
+    flex-shrink: 0;
+}
+
+.album img {
+    width: 150px;
+    border-radius: 8px;
+    transition: transform 0.2s;
+    cursor: pointer;
+    display: block;
+}
+
+.album:hover img {
+    transform: scale(1.08);
+}
+
+/* HOVER OVERLAY */
+.album .info {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 5px;
+    border-radius: 0 0 8px 8px;
+
+    background: linear-gradient(to top, rgb(143, 35, 35), rgba(0, 0, 0, 0.014));
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 0.25s ease;
+}
+
+/* Show on hover */
+.album:hover .info {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.info p {
+    margin: 0;
+    font-size: 14px;
     font-weight: bold;
 }
 
-  .banner-text {
-    display: inline-block;
-    white-space: nowrap; /* Keep text on one line */
-    position: relative;
-    animation: move-left 10s linear infinite; /* Animate left */
-    
-  }
+.info small {
+    opacity: 0.8;
+    font-size: 12px;
+}
 
-    @keyframes move-left {
-    0% {
-      transform: translateX(100%); /* Start off-screen right */
-    }
-    100% {
-      transform: translateX(-100%); /* End off-screen left */
-    }}
+a {
+    text-decoration: none;
+    color: white;
+}
+
 
 /* Section styling */
 section {
@@ -133,13 +225,14 @@ h3 {
 }
 
 #section2 {
-    background: #e0e0a7;
+    background: var(--yellow);
     color: var(--darkred);
 }
 
 #section3 {
     background: var(--darkred);
-    color: var(--yellow);
+   color: var(--yellow);
+    
 }
 
 #section4 {

@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Top Trending Albums Collapsible</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background: #111;
+    color: white;
+    padding: 20px;
+  }
+
+  .banner {
+    background: #222;
+    padding: 12px 20px;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 6px;
+    user-select: none;
+    transition: background 0.2s;
+  }
+
+  .banner:hover {
+    background: #333;
+  }
+
+  .content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease;
+  }
+
+  select {
+    padding: 8px;
+    margin: 10px 0 20px 0;
+    border-radius: 6px;
+    border: none;
+    font-size: 16px;
+  }
+
+  .carousel-wrapper {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .carousel {
+    display: flex;
+    gap: 20px;
+    padding: 10px 0;
+    animation: scroll 25s linear infinite;
+  }
+
+  .carousel-wrapper:hover .carousel {
+    animation-play-state: paused;
+  }
+
+  @keyframes scroll {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+  }
+
+  .album {
+    position: relative;
+    min-width: 150px;
+    flex-shrink: 0;
+  }
+
+  .album img {
+    width: 150px;
+    border-radius: 8px;
+    transition: transform 0.2s;
+    cursor: pointer;
+    display: block;
+  }
+
+  .album:hover img {
+    transform: scale(1.08);
+  }
+
+  .album .info {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 8px;
+    border-radius: 0 0 8px 8px;
+    background: linear-gradient(to top, rgba(0,0,0,0.85), rgba(0,0,0,0));
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.25s ease;
+  }
+
+  .album:hover .info {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .info p { margin: 0; font-size: 14px; font-weight: bold; }
+  .info small { opacity: 0.8; font-size: 12px; }
+  a { text-decoration: none; color: white; }
+</style>
+</head>
+<body>
+
+<div class="banner" id="toggleBanner">Top Trending Albums ▼</div>
+
+<div class="content" id="carouselContainer">
+  <select id="countrySelector">
+    <option value="us">United States</option>
+    <option value="fr">France</option>
+    <option value="gb">United Kingdom</option>
+    <option value="ca">Canada</option>
+    <option value="de">Germany</option>
+    <option value="jp">Japan</option>
+    <option value="au">Australia</option>
+    <option value="br">Brazil</option>
+    <option value="es">Spain</option>
+    <option value="it">Italy</option>
+  </select>
+
+  <div class="carousel-wrapper">
+    <div class="carousel" id="albumCarousel"></div>
+  </div>
+</div>
+
+<script>
+const banner = document.getElementById('toggleBanner');
+const content = document.getElementById('carouselContainer');
+let expanded = false;
+
+// Toggle accordion
+banner.addEventListener('click', () => {
+  expanded = !expanded;
+  if (expanded) {
+    content.style.maxHeight = content.scrollHeight + "px";
+    banner.textContent = "Top Trending Albums ▲";
+  } else {
+    content.style.maxHeight = "0";
+    banner.textContent = "Top Trending Albums ▼";
+  }
+});
+
+// Load albums
+async function loadTopAlbums(country = "us") {
+  const url = `https://itunes.apple.com/${country}/rss/topalbums/limit=50/json`;
+  try {
+    const response = await fetch(url);
+    const data = await response.json();
+    let results = data.feed?.entry || [];
+
+    // Filter out EPs and soundtracks
+    results = results.filter(album => {
+      const title = album["im:name"].label.toLowerCase();
+      const category = album.category.attributes.label.toLowerCase();
+      return !(title.includes(" ep") || title.endsWith("ep") || category.includes("soundtrack") || title.includes("soundtrack"));
+    });
+
+    const container = document.getElementById("albumCarousel");
+    container.innerHTML = "";
+
+    const fullList = [...results, ...results];
+
+    fullList.forEach(album => {
+      const name = album["im:name"].label;
+      const artist = album["im:artist"].label;
+      const image = album["im:image"][2].label;
+      const link = album.link.attributes.href;
+
+      const item = document.createElement("div");
+      item.className = "album";
+      item.innerHTML = `
+        <a href="${link}" target="_blank">
+          <img src="${image}" alt="${name}">
+          <div class="info">
+            <p>${name}</p>
+            <small>${artist}</small>
+          </div>
+        </a>
+      `;
+      container.appendChild(item);
+    });
+  } catch (error) {
+    console.error("ERROR:", error);
+  }
+}
+
+// Load default country
+loadTopAlbums();
+
+// Country selector
+document.getElementById("countrySelector").addEventListener("change", e => {
+  loadTopAlbums(e.target.value);
+});
+</script>
+
+</body>
+</html>

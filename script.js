@@ -70,7 +70,7 @@ async function searchAlbums() {
     const response = await fetch(
       `https://itunes.apple.com/search?term=${encodeURIComponent(
         term
-      )}&entity=album&limit=10`
+      )}&entity=album&limit=15`
     );
 
     const data = await response.json();
@@ -301,3 +301,89 @@ carousel.addEventListener("mousemove", (e) => {
   const walk = (x - startX) * 1; // scroll-fast factor, increase for faster drag
   carousel.scrollLeft = scrollLeft - walk;
 });
+
+/////
+// effet toggle
+const banner = document.getElementById('toggleBanner');
+const content = document.getElementById('carouselContainer');
+let expanded = false;
+
+// Toggle accordion
+banner.addEventListener('click', () => {
+  expanded = !expanded;
+  if (expanded) {
+    content.style.maxHeight = content.scrollHeight + "px";
+    banner.textContent = "Top Trending Albums ▲";
+  } else {
+    content.style.maxHeight = "0";
+    banner.textContent = "Top Trending Albums ▼";
+  }
+});
+
+async function loadTopAlbums(country = "us") {
+  const url = `https://itunes.apple.com/${country}/rss/topalbums/limit=50/json`;
+
+  try {
+    const response = await fetch(url);
+    const data = await response.json();
+    let results = data.feed?.entry || [];
+
+    // REMOVE EPs & Soundtracks
+    results = results.filter(album => {
+      const title = album["im:name"].label.toLowerCase();
+      const category = album.category.attributes.label.toLowerCase();
+
+      return !(title.includes(" ep") || title.endsWith("ep") || category.includes("soundtrack") || title.includes("soundtrack"));
+    });
+
+    const container = document.getElementById("albumCarousel");
+    container.innerHTML = "";
+
+    // Duplicate list for infinite scroll
+    const fullList = [...results, ...results];
+
+    fullList.forEach(album => {
+      const name = album["im:name"].label;
+      const artist = album["im:artist"].label;
+      const image = album["im:image"][2].label;
+      const link = album.link.attributes.href;
+
+      const item = document.createElement("div");
+      item.className = "album";
+
+      item.innerHTML = `
+        <a href="${link}" target="_blank">
+          <img src="${image}" alt="${name}">
+          <div class="info">
+            <p>${name}</p>
+            <small>${artist}</small>
+          </div>
+        </a>
+      `;
+
+      container.appendChild(item);
+    });
+
+  } catch (error) {
+    console.error("ERROR:", error);
+  }
+}
+
+loadTopAlbums();
+
+document.getElementById("countrySelector").addEventListener("change", (e) => {
+  loadTopAlbums(e.target.value);
+});
+
+// effet selector 
+
+const select = document.getElementById("countrySelector");
+const textColors = ["var(--darkred)", "var(--yellow)"];
+const bgColors   = ["var(--yellow)", "var(--darkred)"];
+
+for(let i = 0; i < select.options.length; i++){
+    select.options[i].style.color = textColors[i % textColors.length];
+    select.options[i].style.backgroundColor = bgColors[i % bgColors.length];
+}
+
+////
