@@ -52,6 +52,7 @@ function changeSlide(direction) {
   carouselTrack.scrollLeft = currentSlideIndex * slideWidth;
 }
 
+
 /* ===========================
    SEARCH
 =========================== */
@@ -92,8 +93,10 @@ function displaySearchResults(results) {
     const div = document.createElement("div");
     div.className = "album-result";
 
+    const highResArt = album.artworkUrl100.replace("100x100", "600x600");
+
     div.innerHTML = `
-      <img src="${album.artworkUrl100}" alt="${album.collectionName}">
+      <img src="${highResArt}" alt="${album.collectionName}">
       <p>${album.collectionName}</p>
     `;
 
@@ -101,6 +104,7 @@ function displaySearchResults(results) {
     searchResults.appendChild(div);
   });
 }
+
 
 /* ===========================
    ALBUM MANAGEMENT
@@ -110,7 +114,7 @@ function addAlbum(album) {
   const maxAlbums = gridCols * gridRows;
   if (selectedAlbums.length >= maxAlbums) return;
 
-// Use 300x300 instead of 600x600
+
 selectedAlbums.push({
     id: album.collectionId,
     image: album.artworkUrl100.replace("100x100", "300x300"), 

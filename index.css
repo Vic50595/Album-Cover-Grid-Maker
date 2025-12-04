@@ -322,12 +322,17 @@
         .square {
             width: 100%;
             height: 100%;
-            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-            border-radius: 20px;
+            background: linear-gradient(135deg, #630437 0%, var(--darkred) 100%);
+            border-radius: 2px;
             box-shadow: 0 10px 40px rgba(0,0,0,0.3);
             position: relative;
             cursor: pointer;
             z-index: 3;
+
+            display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
         }
 
         .rectangle {
@@ -336,12 +341,21 @@
             left: 450px;
             width: 0;
             height: 450px;
-            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            background-color: var(--yellow);
             border-radius: 0 20px 20px 0;
             box-shadow: 0 10px 40px rgba(0,0,0,0.3);
             transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
             overflow: visible;
             z-index: 2;
+
+            display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    overflow: hidden;
+    padding-top: 5px;
+    padding-bottom: 5px;
         }
 
         .vinyl-box:hover .rectangle {
@@ -352,16 +366,92 @@
             position: absolute;
             top: 0;
             left: 450px;
-            width: 400px;
+            width: 450px;
             height: 450px;
-            background: url('https://images.unsplash.com/photo-1579546929518-9e396f3cc809?w=800') center/cover;
+            background: url('images/vinyl.svg') center/cover;
             border-radius: 0 20px 20px 0;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+            
             transform: translateX(-100%);
             transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1) 0.5s;
             z-index: 1;
+            
         }
+
+  
+
+
+
+
+
 
         .vinyl-box:hover .slide-image {
             transform: translateX(0);
         }
+
+ .icon {
+    width: 100px;
+    height: 100px;
+    background: yellow;
+    border-radius: 6px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: filter 0.25s, box-shadow 0.25s;
+}
+
+
+
+.twitter-icon {
+    background:
+        rgba(255, 255, 0, 0) url("data:image/svg+xml;utf8,\
+        <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64' id='Logo-Social-Media-Twitter-Circle--Streamline-Pixel' height='64' width='64'>\
+        <g>\
+        <path d='M3.04 45.72h3.04v6.08h3.06v3.06h3.04v3.04h6.1v3.06h6.1V64h15.24v-3.04h6.08v-3.06h6.1v-3.04h3.04V51.8h3.06v-6.08h3.04v-6.1H64v-15.24h-3.06V18.28h-3.04V12.18h-3.06V9.14H51.8V6.1h-6.1V3.04h-6.08V0h-15.24v3.04H18.28v3.06H12.18v3.04H9.14v3.04H6.08v6.1H3.04v6.1H0v15.24h3.04ZM15.22 18.28h3.06v3.06h3.04v3.04h3.06v3.04h6.08V18.28h3.06V15.24h12.18v3.04h3.06v6.1h6.08v3.04H51.8v3.06h-3.04v9.14h-3.06v6.1h-3.04v3.04h-3.04v3.04H18.28v-3.04h3.04v-3.04h3.06v-3.06h3.04v-3.04h-6.1v-3.04H18.28v-3.06H15.22Z' fill='%238e1606'></path>\
+        <path d='M39.62 21.34h6.08v6.08h-6.08Z' fill='%238e1606'></path>\
+        </g>\
+        </svg>") center/80% no-repeat;
+}
+
+.discord-icon {
+    background:
+        rgba(255, 255, 0, 0) url("data:image/svg+xml;utf8,\
+        <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64' id='Logo-Discord--Streamline-Pixel' height='64' width='64'>\
+        <g>\
+        <path d='M60.94 18.28h-3.04V12.18h-3.06V9.14H51.8V6.1h-6.1V3.04h-6.08V0h-15.24v3.04H18.28v3.06H12.18v3.04H9.14v3.04H6.08v6.1H3.04v6.1H0v15.24h3.04v6.1h3.04v6.08h3.06v3.06h3.04v3.04h6.1v3.06h6.1V64h15.24v-3.04h6.08v-3.06h6.1v-3.04h3.04V51.8h3.06v-6.08h3.04v-6.1H64v-15.24h-3.06Zm-3.04 24.38h-3.06v3.06H51.8v3.04h-3.04v3.04h-12.2v-3.04h9.14v-6.1H18.28v6.1h9.14v3.04h-12.2v-3.04H12.18v-3.04H9.14v-3.06H6.08v-15.24h3.06v-6.08h3.04V18.28h3.04V15.24h12.2v3.04h9.14V15.24h12.2v3.04h3.04v3.06h3.04v6.08h3.06Z' fill='%238e1606' stroke-width='2'></path>\
+        <path d='M36.56 27.42h6.1v6.1h-6.1Z' fill='%238e1606' stroke-width='2'></path>\
+        <path d='M21.32 27.42h6.1v6.1h-6.1Z' fill='%238e1606' stroke-width='2'></path>\
+        </g>\
+        </svg>") center/80% no-repeat;
+}
+
+.facebook-icon {
+    background:
+        rgba(255, 255, 0, 0) url("data:image/svg+xml;utf8,\
+        <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64' id='Logo-Social-Media-Facebook-Circle--Streamline-Pixel' height='64' width='64'>\
+        <path d='m60.94 19.81 -3.04 0 0 -6.1 -3.06 0 0 -3.04 -3.04 0 0 -3.06 -6.1 0 0 -3.04 -6.08 0 0 -3.04 -15.24 0 0 3.04 -6.1 0 0 3.04 -6.1 0 0 3.06 -3.04 0 0 3.04 -3.06 0 0 6.1 -3.04 0 0 6.1 -3.04 0 0 15.22 3.04 0 0 6.1 3.04 0 0 6.1 3.06 0 0 3.04 3.04 0 0 3.06 6.1 0 0 3.04 9.14 0 0 -21.34 -9.14 0 0 -9.14 9.14 0 0 -12.18 3.04 0 0 -3.06 15.24 0 0 9.16 -9.14 0 0 6.08 12.2 0 0 3.06 -3.06 0 0 3.04 -3.04 0 0 3.04 -6.1 0 0 21.34 9.14 0 0 -3.04 6.1 0 0 -3.06 3.04 0 0 -3.04 3.06 0 0 -6.1 3.04 0 0 -6.1 3.06 0 0 -15.22 -3.06 0 0 -6.1z' fill='%238e1606'/>\
+        </svg>") center/80% no-repeat;
+}
+
+.instagram-icon {
+    background:
+        rgba(255, 255, 0, 0) url("data:image/svg+xml;utf8,\
+        <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64' id='Logo-Social-Media-Instagram-Circle--Streamline-Pixel' height='64' width='64'>\
+        <g>\
+        <path d='M3.04 45.72h3.04v6.08h3.06v3.06h3.04v3.04h6.1v3.06h6.1V64h15.24v-3.04h6.08v-3.06h6.1v-3.04h3.04V51.8h3.06v-6.08h3.04v-6.1H64v-15.24h-3.06V18.28h-3.04V12.18h-3.06V9.14H51.8V6.1h-6.1V3.04h-6.08V0h-15.24v3.04H18.28v3.06H12.18v3.04H9.14v3.04H6.08v6.1H3.04v6.1H0v15.24h3.04Zm3.04-21.34h3.06V18.28h3.04V15.24h3.04V12.18h3.06V9.14h6.1V6.1h15.24v3.04h6.08v3.04h3.06v3.06h3.04v3.04h3.04v6.1h3.06v15.24h-3.06v6.1H51.8v3.04h-3.04v3.04h-3.06v3.06h-6.08v3.04h-15.24v-3.04H18.28V51.8H15.22v-3.04H12.18v-3.04H9.14v-6.1H6.08Z' fill='%238e1606' stroke-width='2'></path>\
+        <path d='m54.84 30.48 -9.14 0 0 9.14 -3.04 0 0 3.04 -3.04 0 0 3.06 -3.06 0 0 3.04 -9.14 0 0 -3.04 -3.04 0 0 -3.06 -3.06 0 0 -3.04 -3.04 0 0 -9.14 -9.14 0 0 9.14 3.04 0 0 6.1 3.04 0 0 3.04 3.06 0 0 3.04 6.1 0 0 3.06 15.24 0 0 -3.06 6.08 0 0 -3.04 3.06 0 0 -3.04 3.04 0 0 -6.1 3.04 0 0 -9.14z' fill='%238e1606' stroke-width='2'></path>\
+        <path d='m27.42 42.66 9.14 0 0 -3.04 3.06 0 0 -9.14 -3.06 0 0 6.1 -6.1 0 0 -6.1 6.1 0 0 -3.06 -9.14 0 0 3.06 -3.04 0 0 9.14 3.04 0 0 3.04z' fill='%238e1606' stroke-width='2'></path>\
+        <path d='m24.38 27.42 0 -3.04 3.04 0 0 -3.04 9.14 0 0 3.04 3.06 0 0 3.04 15.22 0 0 -3.04 -3.04 0 0 -6.1 -3.04 0 0 -3.04 -3.06 0 0 6.1 -6.08 0 0 -6.1 6.08 0 0 -3.06 -6.08 0 0 -3.04 -15.24 0 0 3.04 -6.1 0 0 3.06 -3.06 0 0 3.04 -3.04 0 0 6.1 -3.04 0 0 3.04 15.24 0z' fill='%238e1606' stroke-width='2'></path>\
+        </g>\
+        </svg>") center/80% no-repeat;
+}
+
+.tiktok-icon {
+    background:
+        rgba(255, 255, 0, 0) url("data:image/svg+xml;utf8,\
+        <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64' id='Logo-Social-Media-Tiktok-Circle--Streamline-Pixel' height='64' width='64'>\
+        <g>\
+        <path d='M60.94 18.28h-3.04V12.18h-3.06V9.14H51.8V6.1h-6.1V3.04h-6.08V0h-15.24v3.04H18.28v3.06H12.18v3.04H9.14v3.04H6.08v6.1H3.04v6.1H0v15.24h3.04v6.1h3.04v6.08h3.06v3.06h3.04v3.04h6.1v3.06h6.1V64h15.24v-3.04h6.08v-3.06h6.1v-3.04h3.04V51.8h3.06v-6.08h3.04v-6.1H64v-15.24h-3.06Zm-3.04 12.2h-3.06v3.04h-9.14v15.24h-3.04v3.04h-3.04v3.06h-3.06v3.04h-15.24v-3.04H18.28V51.8H15.22v-3.04H12.18v-6.1H9.14v-12.18h3.04v-3.06h3.04v-3.04h12.2v9.14h-3.04v9.14h6.08V9.14h3.06V6.1h6.1v3.04h3.04v3.04h3.04v3.06h3.06v3.04h6.08v3.06h3.06Z' fill='%238e1606' stroke-width='2'></path>\
+        <path d='m18.28 27.42 0 3.06 -3.06 0 0 12.18 3.06 0 0 6.1 3.04 0 0 3.04 15.24 0 0 -3.04 3.06 0 0 -24.38 6.08 0 0 3.04 9.14 0 0 -6.08 -6.08 0 0 -3.06 -3.06 0 0 -3.04 -3.04 0 0 -3.06 -3.04 0 0 -3.04 -6.1 0 0 33.52 -3.06 0 0 3.06 -6.08 0 0 -3.06 -3.06 0 0 -9.14 3.06 0 0 -6.1 -6.1 0z' fill='%238e1606' stroke-width='2'></path>\
+        </g>\
+        </svg>") center/80% no-repeat;
+}
