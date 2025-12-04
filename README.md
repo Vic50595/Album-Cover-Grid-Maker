@@ -95,7 +95,8 @@ Une application web interactive permettant de créer et télécharger des grille
 ## 📦 Installation
 
 ### Prérequis
-- Navigateur web moderne (Chrome, Firefox, Safari, Edge)
+- Navigateur web moderne (Chrome, Safari, Edge) 
+└──⚠️ Utilisation de Firefox non recommandé, sinon le fichier télechargé est vide ⚠️
 - Éditeur de code (VS Code recommandé)
 - Serveur local (Live Server, Python SimpleHTTPServer, etc.)
 
@@ -364,6 +365,7 @@ canvas.height = cellSize * gridRows;
 - [ ] **Search** : Amélioration de la recherche
 - [ ] **Design** : Amélioration du responsive
 - [ ] **LocalStorage** : Sauvegarder automatiquement la dernière grille
+- [ ] **Tiktok Grid** : Ajout de grille pour post Tiktok
 
 ### Moyen Terme
 - [ ] **Formats d'export** : JPG, SVG, PDF
@@ -419,6 +421,7 @@ Ce projet est sous licence MIT - voir le fichier [LICENSE](LICENSE) pour plus de
 
 ## 🐛 Bugs Connus
 
+- Avec le navigateur Firefox, le png est vide une fois téléchargé car HTLM5 Canvas mal supporté par Firefox.
 - Les images iTunes peuvent parfois être lentes à charger (dépend du serveur Apple)
 - Le carrousel peut sauter légèrement sur certains navigateurs mobiles
 - Limite de 15 résultats par recherche (limitation API iTunes)
