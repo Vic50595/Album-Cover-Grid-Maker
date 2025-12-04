@@ -21,9 +21,7 @@ body {
     scroll-snap-type: y mandatory;
     scrollbar-width: none;
 }
-html {
-  zoom: 0.85; /* 90% zoom */
-}
+
 
 
 nav {
