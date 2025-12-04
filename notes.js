@@ -163,3 +163,42 @@
 
     // Initialize grid
     renderGrid();
+
+
+
+/* Slide the vinyl on hover */
+.slide-image {
+    position: absolute;
+    top: 0;
+    left: 450px;
+    width: 450px;
+    height: 450px;
+    overflow: visible;
+
+    /* initial slide off-screen */
+    transform: translateX(-100%);
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Slide in on hover */
+.vinyl-box:hover .slide-image {
+    transform: translateX(0);
+}
+
+/* Inner spinning vinyl */
+.vinyl-spin {
+    width: 100%;
+    height: 100%;
+    background: url('images/vinyl.svg') center/cover no-repeat;
+    border-radius: 0 20px 20px 0;
+
+    /* continuous spin */
+    animation: spin 5s linear infinite;
+}
+
+/* Spin animation */
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
