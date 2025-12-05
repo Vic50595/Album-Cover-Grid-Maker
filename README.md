@@ -75,7 +75,7 @@ Une application web interactive permettant de créer et télécharger des grille
 ### Frontend
 - **HTML5** - Structure sémantique
 - **CSS3** - Styling moderne avec Grid & Flexbox
-- **JavaScript (ES6+)** - Logique applicative
+- **JavaScript** - Logique applicative
 
 ### APIs & Services
 - **iTunes Search API** - Recherche d'albums
@@ -96,7 +96,7 @@ Une application web interactive permettant de créer et télécharger des grille
 
 ### Prérequis
 - Navigateur web moderne (Chrome, Safari, Edge) 
-└──⚠️ Utilisation de Firefox non recommandé, sinon le fichier télechargé est vide ⚠️
+└──⚠️ Utilisation de Firefox non recommandé, sinon le fichier téléchargé est vide ⚠️
 - Éditeur de code (VS Code recommandé)
 - Serveur local (Live Server, Python SimpleHTTPServer, etc.)
 
