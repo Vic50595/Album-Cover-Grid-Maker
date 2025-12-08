@@ -96,7 +96,7 @@ Une application web interactive permettant de créer et télécharger des grille
 
 ### Prérequis
 - Navigateur web moderne (Chrome, Safari, Edge) 
-└──⚠️ Utilisation de Firefox non recommandé, sinon le fichier téléchargé est vide ⚠️
+- ⚠️ Utilisation de Firefox non recommandé, sinon le fichier téléchargé est vide ⚠️
 - Éditeur de code (VS Code recommandé)
 - Serveur local (Live Server, Python SimpleHTTPServer, etc.)
 
@@ -260,9 +260,9 @@ fetch('https://itunes.apple.com/search?term=radiohead&entity=album&limit=15')
   "results": [
     {
       "collectionId": 1097862703,
-      "collectionName": "OK Computer",
-      "artistName": "Radiohead",
-      "artworkUrl100": "https://is1-ssl.mzstatic.com/.../100x100bb.jpg",
+      "collectionName": "Renaissance",
+      "artistName": "Beyoncé",
+      "artworkUrl100": "https://is1-ssl.mzstatic.com/image/thumb/Video122/v4/bc/86/3c/bc863c3f-7e0d-9461-9173-f730e6f753dc/Job7fc82b4f-fa53-4dea-89bd-4888c34e5a72-134554558-PreviewImage_preview_image_nonvideo_sdr-Time1659042308000.png/316x316bb.webp",
       "releaseDate": "1997-06-16T07:00:00Z"
     }
   ]

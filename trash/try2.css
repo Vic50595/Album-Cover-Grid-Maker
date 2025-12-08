@@ -1,0 +1,55 @@
+.carousel-slide {
+  flex-shrink: 0;
+  cursor: pointer;
+  transition: transform 0.2s, opacity 0.2s;
+  opacity: 0.5;
+
+  /* Keep slide square */
+  width: 200px;
+  height: 200px;
+
+  /* Visual improvements */
+  border: 2px dashed var(--darkred);
+  padding: 8px;
+
+  /* Center preview + text */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  /* Ensure nothing spills out */
+  overflow: hidden;
+}
+
+.grid-preview {
+  display: grid;
+  gap: 2px;
+  padding: 6px;
+  border-radius: 8px;
+  width: 120px;
+  /* fixed width */
+
+  /* Preview becomes taller/shorter automatically to keep cells square */
+  grid-template-columns: repeat(var(--cols), 1fr);
+
+  
+}
+
+.carousel-slide p {
+  margin-top: 0.5rem;
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+
+
+
+/* SQUARE CELLS */
+.preview-cell {
+  background: var(--darkred);
+  border-radius: 2px;
+  aspect-ratio: 1 / 1;
+  /* <-- Forces perfect squares */
+}
+
