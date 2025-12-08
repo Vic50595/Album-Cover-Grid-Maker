@@ -219,7 +219,7 @@ async function downloadGrid() {
     const url = URL.createObjectURL(blob);
     const link = document.createElement("a");
     link.href = url;
-    link.download = `album-grid-${gridCols}x${gridRows}.png`;
+    link.download = `album-grid-${gridCols}x${gridRows}-@Vic50595.png`;
     link.click();
     URL.revokeObjectURL(url);
   });
