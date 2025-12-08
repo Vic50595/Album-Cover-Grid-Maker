@@ -267,3 +267,43 @@ h3 {
     font-weight: 400;
     font-style: normal;
 }
+
+
+  #overlayBackground {
+        position: fixed;
+        inset: 0;
+        background: rgba(0,0,0,0.5); /* grey dim effect */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 9998;
+        backdrop-filter: blur(2px);
+    }
+
+    /* --- THE POPUP WINDOW --- */
+    #welcomeWindow {
+       
+        padding: 10px 0px 10px 0px;
+        border-radius: 3px;
+        box-shadow: 0 0 20px rgba(0,0,0,0.4);
+        z-index: 9999;
+        width: 700px;   
+        
+    }
+
+    #closeOverlay {
+        background: var(--yellow);
+        border: 2px dashed var(--darkred);
+        color: var(--darkred);
+        margin-top: 0px;
+        padding: 10px 20px;
+        font-size: 18px;
+        cursor: pointer;
+        width: 100%;
+    }
+
+     #closeOverlay:hover {
+    background: var(--darkred);
+    color: var(--yellow);
+    
+}

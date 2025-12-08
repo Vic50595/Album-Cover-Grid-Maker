@@ -38,6 +38,12 @@ Une application web interactive permettant de créer et télécharger des grille
 
 ## ✨ Fonctionnalités
 
+### 🎄 Fenêtre Carte de Fêtes
+- Animation p5.js festive
+- Popup centrée de la taille du canvas
+- Fond gris derrière la fenêtre
+- Bouton pour fermer et accéder au site
+
 ### 🔍 Recherche d'Albums
 - Recherche en temps réel via l'API iTunes
 - Affichage de 15 résultats pertinents par recherche
@@ -53,7 +59,7 @@ Une application web interactive permettant de créer et télécharger des grille
 - Téléchargement en format PNG
 - Résolution adaptée à la taille de grille (900×900px à 1500×1500px)
 - Gestion automatique des images manquantes
-- Nomenclature automatique des fichiers (`album-grid-3x3.png`)
+- Nom des fichiers automatique (`album-grid-3x3---Git@Vic50595.png`)
 
 ### 🔥 Albums Tendance
 - Carrousel des top 50 albums par pays
@@ -74,9 +80,9 @@ Une application web interactive permettant de créer et télécharger des grille
 ## 🛠 Technologies Utilisées
 
 ### Frontend
-- **HTML5** - Structure sémantique
-- **CSS3** - Styling moderne avec Grid & Flexbox
-- **JavaScript** - Logique applicative
+- **HTML5** 
+- **CSS3** 
+- **JavaScript** 
 
 ### APIs & Services
 - **iTunes Search API** - Recherche d'albums
@@ -89,7 +95,7 @@ Une application web interactive permettant de créer et télécharger des grille
 - Manipulation DOM
 - Event Listeners
 - Gestion d'état (state management)
-- Canvas drawing & image manipulation
+- Canvas drawing & manipulation d'images
 
 ---
 
@@ -236,6 +242,17 @@ album-grid-creator/
 │       ├── Carousel drag
 │       ├── Accordion toggle
 │       └── Country selector
+│
+│
+├──mysketch.js                 # Sketch p5.js pour la carte de fêtes
+│   ├── Initialisation canvas
+│   │   └── createCanvas(700, 700, WEBGL)
+│   └── draw()
+│       ├── Background
+│       ├── Texte affiché sur le plan
+│       ├── Couleurs, tailles et positions des objets
+│       └── Vitesse de rotation sur l'axe Y et animation
+│   
 │
 └── README.md                  # Documentation (ce fichier)
 ```
@@ -397,11 +414,15 @@ Ce projet est sous licence MIT - voir le fichier [LICENSE](LICENSE) pour plus de
 ---
 
 ## 🙏 Remerciements
+- Merci à **Winona** et au site **OpenProcessing** pour l’inspiration et la base de la Carte de fêtes.
+
 
 - **Apple iTunes** pour leur API publique
 - **MDN Web Docs** pour la documentation Canvas
 - **CSS-Tricks** pour les astuces de mise en page Grid
 - La communauté **Stack Overflow** pour le support technique
+
+
 
 ---
 
