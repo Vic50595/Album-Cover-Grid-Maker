@@ -57,10 +57,11 @@ Une application web interactive permettant de créer et télécharger des grille
 
 ### 🔥 Albums Tendance
 - Carrousel des top 50 albums par pays
-- Sélection de pays (US, UK, FR, JP, etc.)
+- Sélection de pays (BE, US, UK, FR, JP, etc.)
 - Défilement infini automatique
-- Filtrage des EPs et bandes originales
+- Filtrage des EPs et bandes originales(soundtrack)
 - Section accordéon pliable/dépliable
+- Ouverture de la page d'album sur Apple Music
 
 ### 🎭 Interface Utilisateur
 - Design moderne avec palette rouge/jaune
@@ -96,7 +97,7 @@ Une application web interactive permettant de créer et télécharger des grille
 
 ### Prérequis
 - Navigateur web moderne (Chrome, Safari, Edge) 
-- ⚠️ Utilisation de Firefox non recommandé, sinon le fichier téléchargé est vide ⚠️
+- ⚠️ Utilisation de Firefox non recommandé, sinon le fichier téléchargé peut être vide ⚠️
 - Éditeur de code (VS Code recommandé)
 - Serveur local (Live Server, Python SimpleHTTPServer, etc.)
 
@@ -158,7 +159,7 @@ http://localhost:8000
    - Continuer jusqu'à remplir tous les emplacements
 
 5. **Télécharger**
-   - Une fois la grille complète, le bouton "Download Grid" apparaît
+   - Une fois la grille complète, le bouton "Download" apparaît
    - Cliquer pour télécharger votre création en PNG
 
 ### Explorer les Albums Tendance
@@ -174,6 +175,10 @@ http://localhost:8000
 3. **Naviguer**
    - Faire défiler horizontalement
    - Cliquer sur un album pour ouvrir sa page iTunes
+
+4. **Fermer la section**
+   - Cliquer sur "Top Trending Albums ▲" en haut de la page
+   - Le carrousel se replie
 
 ---
 
@@ -197,7 +202,7 @@ album-grid-creator/
 │   └── Bouton téléchargement
 │
 ├── aboutme.html               # Page HTML secondaire
-│   ├── VIDE
+│    └── VIDE
 │
 ├── global.css                 # Feuille de styles
 │   ├── Variables CSS (:root)
