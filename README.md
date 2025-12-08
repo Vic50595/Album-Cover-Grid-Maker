@@ -255,20 +255,20 @@ album-grid-creator/
 
 **Exemple de requête :**
 ```javascript
-fetch('https://itunes.apple.com/search?term=radiohead&entity=album&limit=15')
+fetch('https://itunes.apple.com/search?term=beyonce&entity=album&limit=15')
 ```
 
 **Réponse (extrait) :**
 ```json
 {
-  "resultCount": 15,
+  "resultCount": 1,
   "results": [
     {
-      "collectionId": 1097862703,
-      "collectionName": "Renaissance",
+      "collectionId": 1630005298,
+      "collectionName": "RENAISSANCE",
       "artistName": "Beyoncé",
-      "artworkUrl100": "https://is1-ssl.mzstatic.com/image/thumb/Video122/v4/bc/86/3c/bc863c3f-7e0d-9461-9173-f730e6f753dc/Job7fc82b4f-fa53-4dea-89bd-4888c34e5a72-134554558-PreviewImage_preview_image_nonvideo_sdr-Time1659042308000.png/316x316bb.webp",
-      "releaseDate": "1997-06-16T07:00:00Z"
+      "artworkUrl100": "https://is1-ssl.mzstatic.com/image/thumb/Music126/v4/17/92/b4/1792b46d-5b89-0c6f-08b8-7f9c2d7a4250/22UMGIM03221.rgb.jpg/316x316bb.webp",
+      "releaseDate": "2022-07-29T07:00:00Z"
     }
   ]
 }
@@ -279,7 +279,7 @@ fetch('https://itunes.apple.com/search?term=radiohead&entity=album&limit=15')
 **Endpoint :** `https://itunes.apple.com/{country}/rss/topalbums/limit={limit}/json`
 
 **Paramètres :**
-- `{country}` : Code pays (us, fr, uk, jp, etc.)
+- `{country}` : Code pays (be, us, fr, uk, jp, etc.)
 - `{limit}` : Nombre d'albums (max: 200)
 
 **Exemple de requête :**
