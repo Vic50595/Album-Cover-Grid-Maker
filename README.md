@@ -28,11 +28,11 @@ Une application web interactive permettant de créer et télécharger des grille
 
 **Album Grid Creator** est une application web qui permet aux passionnés de musique de créer des mosaïques visuelles de leurs albums préférés. Les utilisateurs peuvent rechercher des albums via l'API iTunes, les organiser dans des grilles personnalisables (3×3, 4×4, 5×5, etc.), et télécharger le résultat final sous forme d'image PNG de haute qualité.
 
-### Cas d'Usage
+### User Case
 - Créer des collages d'albums pour les réseaux sociaux (Instagram, Twitter)
 - Visualiser ses tops albums par année/décennie
 - Partager ses découvertes musicales de manière créative
-- Créer des challenges musicaux avec ses amis
+- Créer des challenges avec ses amis
 
 ---
 
@@ -150,7 +150,7 @@ http://localhost:8000
    - La grille s'adapte automatiquement
 
 2. **Rechercher des albums**
-   - Taper un nom d'artiste ou d'album dans la barre de recherche
+   - Taper un nom d'artiste, le titre d'une chanson ou d'un album dans la barre de recherche
    - Appuyer sur Entrée ou cliquer sur le bouton de recherche
    - Les résultats s'affichent en dessous
 
@@ -414,6 +414,7 @@ Ce projet est sous licence MIT - voir le fichier [LICENSE](LICENSE) pour plus de
 ---
 
 ## 🙏 Remerciements
+- Merci à **Aude** & à **Sonia** pour votre accompagnement et vos précieux conseils tout au long de ce projet.
 - Merci à **Winona** et au site **OpenProcessing** pour l’inspiration et la base de la Carte de fêtes.
 
 
